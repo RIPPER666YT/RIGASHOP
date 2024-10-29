@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIGASHOP</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            margin-left: 10px;
+        }
+
+        .menu-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #menuButton {
+            margin-right: 10px;
+        }
+
+        .product {
+            margin-bottom: 20px;
+        }
+
+        .product button {
+            margin-right: 5px; /* Отступ между кнопками */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RIGASHOP</h1>
+        <div class="menu-container">
+            <button id="menuButton" onclick="toggleMenu()">Меню</button>
+            <div id="menu" class="dropdown-menu" style="display: none;">
+                <a href="index.html">Главная</a>
+                <a href="support.html">Поддержка</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <form class="search-form" onsubmit="return searchProducts(event)">
+            <input type="search" id="searchInput" placeholder="поиск товаров">
+            <button type="submit">Найти</button>
+        </form>
+        <section class="products" id="productList">
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Игровая мышь Logitech">
+                <h3>Игровая мышь Logitech</h3>
+                <p>Цена: 2499 руб.</p>
+                <button onclick="buyProduct('Игровая мышь (Logitech)')">Купить</button>
+                <button onclick="searchGoogle('Игровая мышь Logitech')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Игровая мышь Razer">
+                <h3>Игровая мышь Razer</h3>
+                <p>Цена: 2999 руб.</p>
+                <button onclick="buyProduct('Игровая мышь (Razer)')">Купить</button>
+                <button onclick="searchGoogle('Игровая мышь Razer')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Игровая клавиатура Corsair">
+                <h3>Игровая клавиатура Corsair</h3>
+                <p>Цена: 3999 руб.</p>
+                <button onclick="buyProduct('Игровая клавиатура (Corsair)')">Купить</button>
+                <button onclick="searchGoogle('Игровая клавиатура Corsair')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Игровые наушники Sony">
+                <h3>Игровые наушники Sony</h3>
+                <p>Цена: 3499 руб.</p>
+                <button onclick="buyProduct('Игровые наушники (Sony)')">Купить</button>
+                <button onclick="searchGoogle('Игровые наушники Sony')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Игровой монитор ASUS">
+                <h3>Игровой монитор ASUS</h3>
+                <p>Цена: 19999 руб.</p>
+                <button onclick="buyProduct('Игровой монитор (ASUS)')">Купить</button>
+                <button onclick="searchGoogle('Игровой монитор ASUS')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Видеокарта NVIDIA">
+                <h3>Видеокарта NVIDIA</h3>
+                <p>Цена: 59999 руб.</p>
+                <button onclick="buyProduct('Видеокарта (NVIDIA)')">Купить</button>
+                <button onclick="searchGoogle('Видеокарта NVIDIA')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Процессор Intel">
+                <h3>Процессор Intel</h3>
+                <p>Цена: 24999 руб.</p>
+                <button onclick="buyProduct('Процессор (Intel)')">Купить</button>
+                <button onclick="searchGoogle('Процессор Intel')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Материнская плата Gigabyte">
+                <h3>Материнская плата Gigabyte</h3>
+                <p>Цена: 8999 руб.</p>
+                <button onclick="buyProduct('Материнская плата (Gigabyte)')">Купить</button>
+                <button onclick="searchGoogle('Материнская плата Gigabyte')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Блок питания EVGA">
+                <h3>Блок питания EVGA</h3>
+                <p>Цена: 4999 руб.</p>
+                <button onclick="buyProduct('Блок питания (EVGA)')">Купить</button>
+                <button onclick="searchGoogle('Блок питания EVGA')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Игровой корпус NZXT">
+                <h3>Игровой корпус NZXT</h3>
+                <p>Цена: 3499 руб.</p>
+                <button onclick="buyProduct('Игровой корпус (NZXT)')">Купить</button>
+                <button onclick="searchGoogle('Игровой корпус NZXT')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="SSD диск Western Digital">
+                <h3>SSD диск Western Digital</h3>
+                <p>Цена: 4999 руб.</p>
+                <button onclick="buyProduct('SSD диск (Western Digital)')">Купить</button>
+                <button onclick="searchGoogle('SSD диск Western Digital')">i</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="HDD диск Seagate">
+                <h3>HDD диск Seagate</h3>
+                <p>Цена: 2999 руб.</p>
+                <button onclick="buyProduct('HDD диск (Seagate)')">Купить</button>
+                <button onclick="searchGoogle('HDD диск Seagate')">i</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 RIGASHOP. Все права защищены.</p>
+    </footer>
+    <script>
+        function searchProducts(event) {
+            event.preventDefault();
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const productName = product.querySelector('h3').textContent.toLowerCase();
+                if (productName.includes(searchInput)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function searchGoogle(productName) {
+            const query = encodeURIComponent(productName);
+            const googleSearchUrl = `https://www.google.com/search?q=${query}`;
+            window.open(googleSearchUrl, '_blank');
+        }
+
+        function buyProduct(productName) {
+            alert(`Вы выбрали товар: ${productName}`);
+            // Здесь можно добавить логику для покупки товара
+        }
+    </script>
+</body>
+</html>
